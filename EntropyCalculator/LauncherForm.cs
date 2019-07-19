@@ -38,7 +38,7 @@ namespace EntropyCalculator
                 {
 
                     FileStream fs = new FileStream(PathBox.Text, FileMode.Open);
-                    Plotter plotter = new Plotter(PlotStyle.Numbers, PlotScale.Linear, fs);
+                    PlotterForm plotter = new PlotterForm(PlotStyle.Numbers, PlotScale.Linear, fs);
                     plotter.Show();
                     plotter.StartCalculation();
                 }

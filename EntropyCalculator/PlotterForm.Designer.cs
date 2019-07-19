@@ -1,6 +1,6 @@
 ﻿namespace EntropyCalculator
 {
-    partial class Plotter
+    partial class PlotterForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Plotter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlotterForm));
             this.HistogramDrawer = new OxyPlot.WindowsForms.PlotView();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.EntropyLabel = new System.Windows.Forms.ToolStripStatusLabel();

@@ -16,7 +16,7 @@ using OxyPlot.Series;
 
 namespace EntropyCalculator
 {
-    public partial class Plotter : Form
+    public partial class PlotterForm : Form
     {
         private Stream _stream;
         private PlotStyle _plotStyle;
@@ -24,14 +24,14 @@ namespace EntropyCalculator
         private IAnalysisResult<byte> _results;
 
         
-        public Plotter(PlotStyle style, PlotScale scale)
+        public PlotterForm(PlotStyle style, PlotScale scale)
         {
             _plotStyle = style;
             _plotScale = scale;
             InitializeComponent();
         }
 
-        public Plotter(PlotStyle style, PlotScale scale, Stream inputStream)
+        public PlotterForm(PlotStyle style, PlotScale scale, Stream inputStream)
         {
             _plotStyle = style;
             _plotScale = scale;
