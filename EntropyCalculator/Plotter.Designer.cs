@@ -73,8 +73,8 @@
             // EntropyLabel
             // 
             this.EntropyLabel.Name = "EntropyLabel";
-            this.EntropyLabel.Size = new System.Drawing.Size(51, 17);
-            this.EntropyLabel.Text = "Entropy:";
+            this.EntropyLabel.Size = new System.Drawing.Size(81, 17);
+            this.EntropyLabel.Text = "Entropy (bits):";
             // 
             // EntropyValueLabel
             // 

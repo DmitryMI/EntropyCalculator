@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,18 +32,33 @@ namespace EntropyCalculator
 
         private void LaunchPlotter()
         {
-            if (File.Exists(PathBox.Text))
+            try
             {
+                if (File.Exists(PathBox.Text))
+                {
 
-                FileStream fs = new FileStream(PathBox.Text, FileMode.Open);
-                Plotter plotter = new Plotter(PlotStyle.Numbers, PlotScale.Linear, fs);
-                plotter.Show();
-                plotter.StartCalculation();
+                    FileStream fs = new FileStream(PathBox.Text, FileMode.Open);
+                    Plotter plotter = new Plotter(PlotStyle.Numbers, PlotScale.Linear, fs);
+                    plotter.Show();
+                    plotter.StartCalculation();
+                }
+                else
+                {
+                    MessageBox.Show("Error: path does not exist of is not a file.", "ERROR", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (UnauthorizedAccessException unauthAccessException)
             {
-                MessageBox.Show("Error: path does not exist of is not a file.", "ERROR", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error: access denied. Error: " + unauthAccessException.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SecurityException secEx)
+            {
+                MessageBox.Show("Error: access denied.Error: " + secEx.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ioEx)
+            {
+                MessageBox.Show("Error: impossible to read file. Error: " + ioEx.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

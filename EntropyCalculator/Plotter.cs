@@ -67,7 +67,7 @@ namespace EntropyCalculator
             {
                 var model = new PlotModel
                 {
-                    Title = "Histogram", LegendPlacement = LegendPlacement.Outside,
+                    Title = "Bytes frequency histogram", LegendPlacement = LegendPlacement.Outside,
                     LegendPosition = LegendPosition.RightTop, LegendOrientation = LegendOrientation.Vertical
                 };
                 OxyPlot.Series.RectangleBarSeries bars = new RectangleBarSeries();
@@ -99,7 +99,7 @@ namespace EntropyCalculator
 
                 HistogramDrawer.Visible = true;
 
-                EntropyValueLabel.Text = _results.Entropy.ToString("0.00");
+                EntropyValueLabel.Text = _results.Entropy.ToString("0.00000");
 
                 
                 ProcessUi();

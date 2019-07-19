@@ -53,7 +53,7 @@ namespace EntropyCalculator.EntropyAnalyzers
             }
         }
 
-        public double Entropy => CalculateEntropy();
+        public double Entropy => CalculateEntropy(2);
 
         public int GetCount(T value)
         {
@@ -103,14 +103,19 @@ namespace EntropyCalculator.EntropyAnalyzers
             return -1;
         }
 
-        private double CalculateEntropy()
+        private double CalculateEntropy(int logBase)
         {
             double summ = 0;
             double totalCount = GetCountListSumm();
             for (int i = 0; i < _countList.Count; i++)
             {
                 double prob = (double) _countList[i] / totalCount;
-                summ += prob * Math.Log(prob, _countList.Count);
+                if (Math.Abs(prob) < 1e-6)
+                    summ += 0;
+                else
+                {
+                    summ += prob * Math.Log(prob, logBase);
+                }
             }
 
             return -summ;
