@@ -75,10 +75,10 @@ namespace EntropyCalculator
                 if (_plotScale == PlotScale.Log)
                 {
                     throw new NotImplementedException("Logarithmic scale");
-                    Axis yAxis = new LogarithmicAxis();
+                    /*Axis yAxis = new LogarithmicAxis();
                     model.Axes.Add(yAxis);
                     yAxis.AbsoluteMinimum = 0;
-                    yAxis.Minimum = 0;
+                    yAxis.Minimum = 0;*/
                 }
 
                 for (int i = 0; i < _results.Length; i++)
